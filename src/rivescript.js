@@ -32,7 +32,6 @@ const sorting = require("./sorting");
 const inherit_utils = require("./inheritance");
 const { MemorySessionManager } = require("./sessions");
 const JSObjectHandler = require("./lang/javascript");
-const readDir = require("fs-readdir-recursive");
 
 /**
 RiveScript (hash options)
@@ -292,17 +291,17 @@ const RiveScript = (function() {
 		running in a web browser or from node.
 		*/
 		runtime() {
-			var self = this;
-
 			// Webpack and browserify define `process.browser` so this is the best place
 			// to check if we're running in a web environment.
-			if (process.browser) {
-				return "web";
-			}
+			// if (process.browser) {
+			return 'web'
+			// }
+			// var self = this
 
-			// Import the Node filesystem library.
-			self._node.fs = require("fs");
-			return "node";
+			// // Import the Node filesystem library.
+			// self._node.fs = require('fs')
+			// self._node.readDir = require('fs-readdir-recursive')
+			// return 'node'
 		}
 
 		/**
